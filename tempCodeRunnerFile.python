@@ -1,0 +1,36 @@
+def calculate_loan_eligibility(income, expenses):
+    loan_eligibility = 0
+    
+    # Calculate loan eligibility based on income and expenses
+    if income - expenses >= 0:
+        loan_eligibility = 10 * (income - expenses)
+    
+    return loan_eligibility
+
+
+def get_float_input(prompt):
+    while True:
+        try:
+            value = float(input(prompt))
+            return value
+        except ValueError:
+            print("Invalid input. Please enter a numeric value.")
+
+
+def main():
+    print("Loan Eligibility Calculator")
+    print("---------------------------")
+    
+    # Get user input for income and expenses
+    income = get_float_input("Enter your monthly income: ")
+    expenses = get_float_input("Enter your monthly expenses: ")
+    
+    # Calculate loan eligibility
+    eligibility = calculate_loan_eligibility(income, expenses)
+    
+    # Display the loan eligibility
+    print("\nYour loan eligibility is: ${:,.2f}".format(eligibility))
+
+
+if __name__ == '__main__':
+    main()
